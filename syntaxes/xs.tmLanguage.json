@@ -1,0 +1,97 @@
+{
+	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+	"name": "eXternal Subroutine",
+	"fileTypes": ["eXternal Subroutine"],
+	"patterns": [
+		{
+			"include": "#keywords"
+		},
+		{
+			"include": "#strings"
+		},
+		{
+			"include": "#comments"
+		},
+		{
+			"include": "#builtinTypes"
+		},
+		{
+			"include": "#storageModifiers"
+		},
+		{
+			"include": "#constants"
+		}
+	],
+	"repository": {
+		"keywords": {
+			"patterns": [{
+				"name": "keyword.control.xs",
+				"match": "\\b(if|else|while|for|return|switch|case|break|continue|default)\\b"
+			}]
+		},
+		"strings": {
+			"name": "string.quoted.double.xs",
+			"begin": "\"",
+			"end": "\"",
+			"patterns": [
+				{
+					"name": "constant.character.escape.xs",
+					"match": "\\\\."
+				}
+			]
+		},
+		"comments": {
+			"patterns": [
+				{
+					"name": "comment.line.double-slash.xs",
+					"begin": "//",
+					"captures": {
+						"0": {
+							"name": "punctuation.definition.comment.xs"
+						}
+					},
+					"end": "$\\n?"
+				},
+				{
+					"name": "comment.block.xs",
+					"begin": "/\\*",
+					"captures": {
+						"0": {
+							"name": "punctuation.definition.comment.xs"
+						}
+					},
+					"end": "\\*/\\n?"
+				}
+			]
+		},
+		"builtinTypes": {
+			"patterns": [
+				{
+					"name": "storage.type.xs",
+					"match": "\\b(void|int|bool|float|vector|rule|string|minInterval|maxInterval|group|priority)\\b"
+				}
+			]
+		},
+		"storageModifiers": {
+			"patterns": [
+				{
+					"name": "storage.modifier.xs",
+					"match": "\\b(extern|static|const|mutable)\\b"
+				}
+			]
+		},
+		"constants": {
+			"patterns": [
+				{
+					"name": "constant.language.xs",
+					"match": "\\b(active|inactive|runImmediately|highFrequency|true|false)\\b"
+				},
+				{
+					"name": "constant.numeric.xs",
+					"match": "\\b(c[A-Z][a-zA-Z\\d]+)\\b"
+				}
+			]
+		}
+	},
+	"scopeName": "source.xs"
+}

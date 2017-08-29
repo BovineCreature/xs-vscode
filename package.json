@@ -1,0 +1,26 @@
+{
+    "name": "xs",
+    "displayName": "eXternal Subroutine",
+    "description": "eXternal Subroutine language support",
+    "version": "0.0.1",
+    "publisher": "williambenn",
+    "engines": {
+        "vscode": "^1.15.0"
+    },
+    "categories": [
+        "Languages"
+    ],
+    "contributes": {
+        "languages": [{
+            "id": "xs",
+            "aliases": ["eXternal Subroutine", "xs"],
+            "extensions": [".xs"],
+            "configuration": "./language-configuration.json"
+        }],
+        "grammars": [{
+            "language": "xs",
+            "scopeName": "source.xs",
+            "path": "./syntaxes/xs.tmLanguage.json"
+        }]
+    }
+}
